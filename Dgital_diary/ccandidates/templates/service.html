@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Digital Diary</title>
+    <title>Service Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -13,12 +13,12 @@
         }
 
         .header {
-            background: url('https://source.unsplash.com/1600x900/?office,employees') no-repeat center center;
+            background: url('https://source.unsplash.com/1600x900/?service') no-repeat center center;
             background-size: cover;
             position: relative;
             color: white;
             text-align: center;
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .header::before {
@@ -28,7 +28,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .header h1 {
@@ -37,7 +37,6 @@
             font-size: 3rem;
             text-transform: uppercase;
             font-weight: bold;
-            margin-bottom: 0;
         }
 
         .header p {
@@ -47,17 +46,7 @@
             margin-top: 15px;
         }
 
-        .date-time {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 1;
-            font-size: 1.2rem;
-            color: white;
-        }
-
         .container {
-            margin-top: -40px;
             padding: 40px;
             background-color: white;
             border-radius: 10px;
@@ -67,12 +56,12 @@
         .card-group {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .card {
             flex: 1;
-            margin: 0 10px;
+            margin: 15px;
             text-align: center;
             border: none;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -111,38 +100,43 @@
             background: linear-gradient(to right, #007bff, transparent);
             margin-bottom: 30px;
         }
+
     </style>
 </head>
 
 <body>
 
     <div class="header">
-        <div class="date-time" id="date-time">
-            <!-- Date and time will be updated here -->
-        </div>
-        <div>
-            <h1>Digital Diary</h1>
-            <p>Manage all your client-related tasks with ease and efficiency</p>
-        </div>
+        <h1>Government Services</h1>
+        <p>Access various schemes and services offered by the government</p>
     </div>
 
     <div class="container">
-        <h2 class="text-center mb-4">Quick Actions</h2>
+        <h2 class="text-center mb-4">Services & Schemes Provided</h2>
         <hr>
+
         <div class="card-group">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">View All Clients</h3>
-                    <p class="card-text">Get a complete overview of all clients in the system.</p>
-                    <a href="/All_emp" class="btn btn-primary text-white">Go to View</a>
+                    <h3 class="card-title">1. Niradhar Scheme</h3>
+                    <p class="card-text">Financial support for people with no means of income or support.</p>
+                    <a href="/niradhar" class="btn btn-primary text-white">Apply Now</a>
                 </div>
             </div>
 
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">Add a Client</h3>
-                    <p class="card-text">Quickly add new client to the database.</p>
-                    <a href="/service" class="btn btn-success text-white">Go to Add</a>
+                    <h3 class="card-title">2. Income Certificate</h3>
+                    <p class="card-text">Get your income certificate issued by the government.</p>
+                    <a href="/income_certificate" class="btn btn-success text-white">Apply Now</a>
+                </div>
+            </div>
+
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h3 class="card-title">3. Ladli Behen Yojna</h3>
+                    <p class="card-text">Empowering women through financial assistance and benefits.</p>
+                    <a href="/ladli_behen_yojna" class="btn btn-warning text-white">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -150,17 +144,17 @@
         <div class="card-group mt-4">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">Remove a Client</h3>
-                    <p class="card-text">Easily remove client from the system.</p>
-                    <a href="/Remove_emp" class="btn btn-danger text-white">Go to Remove</a>
+                    <h3 class="card-title">4. Pension Scheme</h3>
+                    <p class="card-text">Get enrolled in pension schemes for old-age financial security.</p>
+                    <a href="/pension_scheme" class="btn btn-info text-white">Apply Now</a>
                 </div>
             </div>
 
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">Filter Clients</h3>
-                    <p class="card-text">Filter clients based on specific criteria.</p>
-                    <a href="/Filter_emp" class="btn btn-warning text-white">Go to Filter</a>
+                    <h3 class="card-title">5. Education Support</h3>
+                    <p class="card-text">Educational grants and scholarships for students in need.</p>
+                    <a href="/education_support" class="btn btn-secondary text-white">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -168,34 +162,21 @@
         <div class="card-group mt-4">
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">Pending / Completed</h3>
-                    <p class="card-text">Track pending or completed tasks efficiently.</p>
-                    <a href="/Pending_completed" class="btn btn-info text-white">Go to Status</a>
+                    <h3 class="card-title">6. Health Benefits</h3>
+                    <p class="card-text">Access free or subsidized healthcare services.</p>
+                    <a href="/health_benefits" class="btn btn-danger text-white">Apply Now</a>
                 </div>
             </div>
 
             <div class="card bg-light">
                 <div class="card-body">
-                    <h3 class="card-title">Revenue of a Month</h3>
-                    <p class="card-text">Analyze the revenue generated in a specific month.</p>
-                    <a href="/Monthly_revenue" class="btn btn-secondary text-white">Go to Revenue</a>
+                    <h3 class="card-title">7. Agricultural Support</h3>
+                    <p class="card-text">Financial and technical assistance for farmers.</p>
+                    <a href="/agriculture_support" class="btn btn-primary text-white">Apply Now</a>
                 </div>
             </div>
         </div>
-
     </div>
-
-    <script>
-        function updateDateTime() {
-            const dateTimeElement = document.getElementById('date-time');
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const formattedDate = now.toLocaleDateString('en-US', options);
-            dateTimeElement.textContent = formattedDate;
-        }
-
-        setInterval(updateDateTime, 1000);
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
