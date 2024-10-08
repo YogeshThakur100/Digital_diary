@@ -1,190 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Digital Diary</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    
     <style>
         body {
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
         }
 
-        .header {
-            background: url('https://source.unsplash.com/1600x900/?office,employees') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
+        /* Sidebar styling */
+        .sidebar {
+            background-color: #1e3a5f;
+            height: 100vh;
+            width: 220px;
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 20px;
         }
 
-        .header h1 {
-            position: relative;
-            z-index: 1;
-            font-size: 3rem;
+        .sidebar a {
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            color: #f1f1f1;
+            font-weight: 500;
             text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 0;
+            transition: background 0.3s, padding-left 0.3s;
         }
 
-        .header p {
-            position: relative;
-            z-index: 1;
-            font-size: 1.2rem;
-            margin-top: 15px;
+        .sidebar a:hover {
+            background-color: #26466d;
+            color: #fff;
+            padding-left: 25px;
         }
 
-        .date-time {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 1;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .container {
-            margin-top: -40px;
+        /* Main Content Styling */
+        .content {
+            margin-left: 220px;
             padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #f4f6f9;
         }
 
-        .card-group {
-            display: flex;
-            justify-content: space-between;
+        .hero-section {
+            background-color: #1e3a5f;
+            color: white;
+            padding: 60px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* Date and time */
+        .date-time {
+            font-size: 1rem;
             margin-top: 20px;
         }
 
-        .card {
-            flex: 1;
-            margin: 0 10px;
-            text-align: center;
-            border: none;
+        /* Card Styles */
+        .action-cards {
+            margin-top: 40px;
+        }
+
+        .action-card {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-        .card .card-body {
-            padding: 30px;
+        .action-card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3a5f;
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #007bff;
+        .action-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #666;
         }
 
-        .card a {
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin-top: 15px;
-            color: #007bff;
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            font-weight: 500;
+            border: none;
+            transition: background 0.3s;
         }
 
-        .card a:hover {
-            text-decoration: underline;
+        .btn-custom:hover {
+            background-color: #0056b3;
         }
 
-        hr {
-            border: 0;
-            height: 2px;
-            background: linear-gradient(to right, #007bff, transparent);
-            margin-bottom: 30px;
+        @media (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                height: auto;
+                width: 100%;
+                position: relative;
+            }
+
+            .sidebar a {
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="header">
-        <div class="date-time" id="date-time">
-            <!-- Date and time will be updated here -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="/All_emp">View Clients</a>
+        <a href="/service">Add Clients</a>
+        <a href="/Remove_emp">Remove Clients</a>
+        <a href="/Filter_emp">Filter Clients</a>
+        <a href="/Pending_completed">Pending / Completed</a>
+        <a href="/Monthly_revenue">Monthly Revenue</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="hero-section">
+            <h1>Client Management</h1>
+            <p>Effortless and Efficient Client Operations</p>
+            <div class="date-time" id="date-time"></div>
         </div>
-        <div>
-            <h1>Digital Diary</h1>
-            <p>Manage all your client-related tasks with ease and efficiency</p>
+
+        <!-- Action Cards -->
+        <div class="row action-cards">
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>View All Clients</h3>
+                    <p>Get a complete overview of all clients in the system.</p>
+                    <a href="/All_emp" class="btn btn-custom">View Clients</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>Add a Client</h3>
+                    <p>Quickly add a new client to the database.</p>
+                    <a href="/service" class="btn btn-custom">Add Client</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>Remove a Client</h3>
+                    <p>Easily remove a client from the system.</p>
+                    <a href="/Remove_emp" class="btn btn-custom">Remove Client</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row action-cards mt-4">
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>Filter Clients</h3>
+                    <p>Filter clients based on specific criteria.</p>
+                    <a href="/Filter_emp" class="btn btn-custom">Filter Clients</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>Pending / Completed</h3>
+                    <p>Track pending or completed tasks efficiently.</p>
+                    <a href="/Pending_completed" class="btn btn-custom">Check Status</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="action-card">
+                    <h3>Revenue of a Month</h3>
+                    <p>Analyze the revenue generated in a specific month.</p>
+                    <a href="/Monthly_revenue" class="btn btn-custom">View Revenue</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <h2 class="text-center mb-4">Quick Actions</h2>
-        <hr>
-        <div class="card-group">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">View All Clients</h3>
-                    <p class="card-text">Get a complete overview of all clients in the system.</p>
-                    <a href="/All_emp" class="btn btn-primary text-white">Go to View</a>
-                </div>
-            </div>
-
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">Add a Client</h3>
-                    <p class="card-text">Quickly add new client to the database.</p>
-                    <a href="/service" class="btn btn-success text-white">Go to Add</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-group mt-4">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">Remove a Client</h3>
-                    <p class="card-text">Easily remove client from the system.</p>
-                    <a href="/Remove_emp" class="btn btn-danger text-white">Go to Remove</a>
-                </div>
-            </div>
-
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">Filter Clients</h3>
-                    <p class="card-text">Filter clients based on specific criteria.</p>
-                    <a href="/Filter_emp" class="btn btn-warning text-white">Go to Filter</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-group mt-4">
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">Pending / Completed</h3>
-                    <p class="card-text">Track pending or completed tasks efficiently.</p>
-                    <a href="/Pending_completed" class="btn btn-info text-white">Go to Status</a>
-                </div>
-            </div>
-
-            <div class="card bg-light">
-                <div class="card-body">
-                    <h3 class="card-title">Revenue of a Month</h3>
-                    <p class="card-text">Analyze the revenue generated in a specific month.</p>
-                    <a href="/Monthly_revenue" class="btn btn-secondary text-white">Go to Revenue</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+    <!-- JavaScript to display date and time -->
     <script>
         function updateDateTime() {
             const dateTimeElement = document.getElementById('date-time');
@@ -193,12 +220,10 @@
             const formattedDate = now.toLocaleDateString('en-US', options);
             dateTimeElement.textContent = formattedDate;
         }
-
         setInterval(updateDateTime, 1000);
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
