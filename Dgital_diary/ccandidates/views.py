@@ -7,3 +7,6 @@ def hello(request):
 
 def service(request):
     return render(request , 'service.html')
+
+def niradhar(request):
+    return render(request , 'niradhar.html')
