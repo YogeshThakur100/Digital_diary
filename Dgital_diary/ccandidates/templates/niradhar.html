@@ -96,27 +96,29 @@
     </div>
 
     <div class="container">
-        <form method="POST" action="/add_client">
-            <!-- Client Details -->
+        <form method="POST" action="/niradhar">
+            
+            {% csrf_token %}
+
             <div class="mb-4">
                 <label for="client_name">Client Name</label>
-                <input type="text" id="client_name" name="client_name" required placeholder="Enter Client's Name">
+                <input type="text" id="client_name" name="client_name" value="{{ client_name }}" required placeholder="Enter Client's Name">
             </div>
 
             <div class="mb-4">
                 <label for="client_number">Contact Number</label>
-                <input type="tel" id="client_number" name="client_number" required placeholder="Enter Contact Number">
+                <input type="tel" id="client_number" name="client_number" value="{{ client_number }}" required placeholder="Enter Contact Number">
             </div>
 
             <!-- Document Checklist -->
-            <div class="mb-4">
+            <div class="mb-4">  
                 <label>Documents Submitted</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="documents" value="aadhar"> Aadhar Card</label>
-                    <label><input type="checkbox" name="documents" value="pancard"> PAN Card</label>
-                    <label><input type="checkbox" name="documents" value="income_certificate"> Income Certificate</label>
-                    <label><input type="checkbox" name="documents" value="voterid"> Voter ID</label>
-                    <label><input type="checkbox" name="documents" value="passport"> Passport</label>
+                    <label><input type="checkbox" name="aadhar" value="{{aadhar}}"> Aadhar Card</label>
+                    <label><input type="checkbox" name="pancard" value="{{pancard}}"> PAN Card</label>
+                    <label><input type="checkbox" name="income_certificate" value="{{income_certificate}}"> Income Certificate</label>
+                    <label><input type="checkbox" name="voterid" value="{{voterid}}"> Voter ID</label>
+                    <label><input type="checkbox" name="passport" value="{{passport}}"> Passport</label>
                 </div>
             </div>
 
